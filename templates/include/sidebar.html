@@ -1,0 +1,14 @@
+<form action="{% url 'filter' %}" method="get">
+<div class="left-side my-4">
+    <h5 class="sear-head editContent">Міста</h5>
+    <ul class="w3layouts-box-list">
+        {% for city in view.get_all%}
+        <li class="editContent">
+            <input type="checkbox" class="checked" name="city" value="{{city.city}}">
+            <span class="span editContent">{{city.city|title}}</span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+    <button type="submit" class="btn btn-secondary">Знайти</button>
+</form>

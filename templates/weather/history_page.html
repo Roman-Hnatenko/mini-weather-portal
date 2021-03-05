@@ -1,0 +1,39 @@
+{% extends 'weather/base.html'%}
+
+{% block button%}
+<a class="btn btn-outline-primary" href="/">На головну</a>
+{% endblock %}
+
+{% block sidebar%}
+{% if weather_list%}
+
+  {% include 'include/sidebar.html'%}
+
+{% endif%}
+{% endblock %}
+
+<!--content-->
+{% block content%}
+
+{% for item in weather_list%}
+  {% include 'include/block_weather.html'%}
+{% endfor%}
+
+{% if not weather_list%}
+<div class="alert alert-dark" style="margin-top: 20px">
+  <div class="row">
+    <div class="col">
+      <b><h5>Нічого не знайдено</h5></b>
+    </div>
+  </div>
+</div>
+
+{% endif%}
+
+{% include 'include/pagination.html'%}
+{% endblock content%}
+<!--endcontent-->
+
+{% block resetbutton %}
+<a class="btn btn-primary"  href="{% url 'reset_weather'%}">Очистити історію</a>
+{% endblock %}

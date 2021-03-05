@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Погода</title>
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Погода у твоєму місті</h5>
+    <nav class="my-2 my-md-0 mr-md-3">
+    </nav>
+    {% block button%} {% endblock%}
+</div>
+<div>
+    <div class="row m-0 ml-5">
+        <div class="col-3 p-0" style="justify-content: center">
+            {% block sidebar%} {% endblock%}
+        </div>
+        <div class="col-6">
+
+            {% block content%}
+            {% endblock content%}
+
+        </div>
+        <div class="col-3 p-0">
+        {% block resetbutton%} {% endblock%}
+        </div>
+    </div>
+</div>
+
+<footer class="bg-light text-center text-lg-start" style="">
+    <div class="text-center p-3 foot">
+        © 2021
+    </div>
+</footer>
+</body>
+</html>

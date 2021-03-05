@@ -1,0 +1,25 @@
+{% extends 'weather/base.html'%}
+{% block button%}
+<a class="btn btn-outline-primary" href="/show">Переглянути історію</a>
+{% endblock button%}
+
+{% block content%}
+<form method="post" >
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="town">Місто</label>
+    <input type="text" id="town" name="city"  class="form-control" maxlength="25"
+           required  placeholder="Введіть місто">
+  </div>
+  <button type="submit"  class="btn btn-primary">Переглянути погоду</button>
+</form>
+
+{% if status == 200 %}
+
+  {% include 'include/block_weather.html'%}
+
+{% elif status == 400 %}
+  {% include 'include/error_include.html'%}
+{%endif%}
+
+{% endblock content%}

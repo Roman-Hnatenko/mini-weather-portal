@@ -1,0 +1,28 @@
+<div class="alert alert-info div_top">
+  <div class="row">
+    <div class="col-9">
+
+      {% if item.city%}
+      <b>Місто: {{item.city|title}}</b><br>
+      <b>Погода: {{item.description|capfirst}}</b><br>
+      <b>Температура: {{item.temperature}} </b>С<sup>0</sup><br>
+      <b>Швидкість вітру: {{item.wind}} м/c</b>
+    </div>
+    <div class="col-2 offset-1 ">
+      <img src="http://openweathermap.org/img/w/{{item.image}}.png"  height="100%" width="100%"  title="{{item.description}}" class="img-thumbnail">
+
+      {% else %}
+
+      <b>Місто: {{city|title}}</b><br>
+      <b>Погода: {{description|capfirst}}</b><br>
+      <b>Температура: {{temp}} </b>С<sup>0</sup><br>
+      <b>Швидкість вітру: {{wind}} м/c</b>
+    </div>
+    <div class="col-2 offset-1 ">
+      <img src="http://openweathermap.org/img/w/{{image}}.png"  height="100%" width="100%"  title="{{description}}" class="img-thumbnail">
+
+    {% endif %}
+    </div>
+
+  </div>
+</div>
